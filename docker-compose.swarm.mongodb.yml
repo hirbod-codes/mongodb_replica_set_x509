@@ -41,8 +41,6 @@ services:
     my_app_replicaSet_p:
         image: mongo:4.4.18
         command: bash -c "/mongodb_scripts/rs_server.sh"
-        ports:
-          - 8081:27017
         environment:
             replSet: my_app_replicaSet
             member0: my_app_replicaSet_p
