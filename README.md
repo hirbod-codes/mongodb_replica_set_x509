@@ -27,6 +27,9 @@ and wait 100 seconds.
 
 ### caveats
 
-use DirectConnection option in mongodb to connect
-To customize subject values in certificates make sure to change the value in both prepare_environment_variables.sh and generate_certificates.sh files.
+If you want to connect from **localhost** you must only connect to one server and also set DirectConnection to true,\
+this is because mongodb replica set returns dns names not ip addresses when client gets the list of replica set servers, obviously those dns names are only valid in docker compose network, not in localhost.
+
+To customize subject values in certificates make sure to change the value in **both prepare_environment_variables.sh and generate_certificates.sh** files.
+
 No ports are mapped in compose file for swarm because realistically in production database is not publicly available. (nut obviously you can add port mapping just to test everything)
